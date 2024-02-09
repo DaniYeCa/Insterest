@@ -25,8 +25,11 @@ const exploreContainer = document.getElementById('exploreContainer');
 const buttonExplore = document.createElement('button');
 buttonExplore.textContent = "search";
 buttonExplore.classList.add('exploreButton');
-
+const buttonReset = document.createElement('button');
+buttonReset.textContent = "Inicio";
+buttonReset.classList.add('resetButton');
 exploreContainer.appendChild(buttonExplore);
+exploreContainer.appendChild(buttonReset);
 
 const exploreImages = async () => {
   const REQUEST = inputValue.value;
@@ -58,7 +61,15 @@ const showingImages = (images) => {
   }
 };
 
+
+const resetContent = () => {
+  inputValue.value = 'random-image';
+  exploreImages();
+};
+
+
 buttonExplore.addEventListener('click', exploreImages);
+buttonReset.addEventListener('click', resetContent);
 
 window.addEventListener('DOMContentLoaded', () => {
   inputValue.value = 'random-image';
